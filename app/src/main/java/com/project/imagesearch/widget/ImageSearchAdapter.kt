@@ -1,8 +1,9 @@
-package com.project.imagesearch.main
+package com.project.imagesearch.widget
 
 import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
+import com.project.imagesearch.main.ImageSearchViewHolder
 import com.project.imagesearch.model.Item
 
 class ImageSearchAdapter(

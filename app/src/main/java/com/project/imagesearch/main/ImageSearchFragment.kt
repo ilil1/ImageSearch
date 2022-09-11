@@ -9,7 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
 import com.project.imagesearch.databinding.FragmentImageSearchBinding
-import kotlinx.coroutines.flow.collectLatest
+import com.project.imagesearch.widget.ImageSearchAdapter
 import kotlinx.coroutines.launch
 
 class ImageSearchFragment : Fragment() {
@@ -37,6 +37,8 @@ class ImageSearchFragment : Fragment() {
         binding.recyclerView.adapter = adapter
         binding.recyclerView.layoutManager = GridLayoutManager(context, 4)
         binding.search.setOnClickListener {
+            val query = binding.editText.text.trim().toString()
+            imageSearchViewModel.handleQuery(query)
         }
 
         return root
