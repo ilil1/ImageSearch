@@ -10,6 +10,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
 import com.project.imagesearch.databinding.FragmentImageSearchBinding
 import com.project.imagesearch.widget.ImageSearchAdapter
+import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
 class ImageSearchFragment : Fragment() {
@@ -23,8 +24,6 @@ class ImageSearchFragment : Fragment() {
         super.onCreate(savedInstanceState)
         imageSearchViewModel = ViewModelProvider(this)[ImageSearchViewModel::class.java]
 
-        lifecycleScope.launch {
-        }
     }
 
     override fun onCreateView(
@@ -33,6 +32,16 @@ class ImageSearchFragment : Fragment() {
     ): View {
         val binding = FragmentImageSearchBinding.inflate(inflater, container, false)
         val root = binding.root
+
+        //viewLifecycleOwner.lifecycleScope
+        //lifecycleScope
+
+        viewLifecycleOwner.lifecycleScope.launch {
+            imageSearchViewModel.pagingDataFlow
+                .collectLatest { it ->
+                    adapter.submitData(it)
+                }
+        }
 
         binding.recyclerView.adapter = adapter
         binding.recyclerView.layoutManager = GridLayoutManager(context, 4)
