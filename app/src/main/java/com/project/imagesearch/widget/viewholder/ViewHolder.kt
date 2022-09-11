@@ -1,4 +1,4 @@
-package com.project.imagesearch.main
+package com.project.imagesearch.widget.viewholder
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -15,6 +15,16 @@ class ImageSearchViewHolder(
 ) : RecyclerView.ViewHolder(binding.root) {
 
     fun bind(item: Item?) {
+        item?.let { item ->
+            Glide.with(binding.root)
+                .load(item.thumbnail)
+                .centerCrop()
+                .into(binding.imageView)
+
+            binding.imageView.setOnClickListener {
+                like.invoke(item)//image click 시 호출이 되고 외부에 등록된 like 호출
+            }
+        }
     }
 
     companion object {
