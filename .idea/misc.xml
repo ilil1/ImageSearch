@@ -4,6 +4,8 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/LG/AndroidStudioProjects/ImageSearch/app/src/main/res/layout/activity_main.xml" value="0.136" />
+        <entry key="..\:/Users/LG/AndroidStudioProjects/ImageSearch/app/src/main/res/layout/fragment_favourites.xml" value="0.1" />
+        <entry key="..\:/Users/LG/AndroidStudioProjects/ImageSearch/app/src/main/res/layout/fragment_image_search.xml" value="0.1" />
         <entry key="..\:/Users/LG/AndroidStudioProjects/ImageSearch/app/src/main/res/layout/image_search_item.xml" value="0.22826086956521738" />
       </map>
     </option>
